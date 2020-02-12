@@ -27,6 +27,7 @@ for seq_idx = 1 : 6
         img     = imread(fullfile(img_path, num2str(seq_idx, 'seq-%02d'), img_list(i_img).name));
         RT      = importdata(fullfile(img_path, num2str(seq_idx, 'seq-%02d'), RT_list(i_img).name));
         pt_2d_gt    = Project3D(PoseInv(RT), cameraParams, pt_3d_MXS);
+        % PoseInv是求逆，但是旋转矩阵是正交矩阵，因此求逆和求转置的结果一样，但是实际数值并不一定完美正交，所以二者（求逆、转置）会有一点微小的差异
         
         names = orb_RT_list(orb_index).name(7:12);
         num = str2double(names) + 1;
