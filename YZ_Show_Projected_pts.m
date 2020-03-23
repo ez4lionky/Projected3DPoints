@@ -4,8 +4,8 @@ close all;
 dbstop if error;
 
 pt_3d       = importdata('MapPoints_3D.txt');
-img_path    = '/home/linux/SLAMDataset/7Scenes/chess/';
-orb_RT_path = '/home/linux/Downloads/ORB_SLAM2-master/Trajectory/';
+img_path    = '/home/lionky/SLAMDataset/7Scenes/chess/';
+orb_RT_path = '/home/lionky/Downloads/ORB_SLAM2-master/Trajectory/';
 cameraParams  = [585 , 0  , 320 ;
                 0   , 585 , 240 ;
                 0   , 0   , 1   ];

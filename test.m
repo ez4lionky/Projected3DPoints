@@ -8,7 +8,7 @@ cameraParams  = [585 , 0  , 320 ;
                 0   , 585 , 240 ;
                 0   , 0   , 1   ];
             
-orb_RT_path = '/home/linux/Downloads/ORB_SLAM2-master/Trajectory/';
+orb_RT_path = '/home/lionky/Downloads/ORB_SLAM2-master/Trajectory/';
 for seq_idx = 1 : 6
     orb_RT_list = dir(fullfile(orb_RT_path, num2str(seq_idx, 'seq-%02d'), '*.pose.txt'));
     n_img       = length(orb_RT_list);
