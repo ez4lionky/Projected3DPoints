@@ -30,19 +30,17 @@ for seq_idx = 3 : 3
             
             figure(1); clf;
             subplot(1, 2, 1);
-            location =  -R_gt' * T_gt;   % 1 * 3
             xlim([-2,4]);
             ylim([-5,2]);
             hold on;
-            plotCamera('Location',location,'Orientation',R_gt,'Opacity',0);
+            plotCamera('Location',T_gt,'Orientation',R_gt,'Opacity',0);
             hold off;
             
             subplot(1, 2, 2);
-            location =  -R_ORB' * T_ORB;   % 1 * 3
             xlim([-2,4]);
             ylim([-5,2]);
             hold on;
-            plotCamera('Location',location,'Orientation',R_ORB,'Opacity',0);
+            plotCamera('Location',T_ORB,'Orientation',R_ORB,'Opacity',0);
             hold off;
             orb_index = orb_index + 1;
         else

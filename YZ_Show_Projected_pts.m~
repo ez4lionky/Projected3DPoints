@@ -28,19 +28,14 @@ for seq_idx = 1 : 6
         RT      = importdata(fullfile(img_path, num2str(seq_idx, 'seq-%02d'), RT_list(i_img).name));
         pt_2d_gt    = Project3D(PoseInv(RT), cameraParams, pt_3d_MXS);
         % The RT from 7scenes is RTwc, which is the camera location in real world
-        % when reproject 3D points, need to inverse
         % PoseInv是求逆，但是旋转矩阵是正交矩阵，因此求逆和求转置的结果一样，但是实际数值并不一定完美正交，所以二者（求逆、转置）会有一点微小的差异
         
         names = orb_RT_list(orb_index).name(7:12);
         num = str2double(names) + 1;
         if i_img == num
             RT_ORB  = importdata(fullfile(orb_RT_path, num2str(seq_idx, 'seq-%02d'), orb_RT_list(orb_index).name));
-            % The ORB RT is from world to camera(RTcw), which can be used to reproject 3D points
-            % when plotting the camera trajectory, you need to calculate
-            % the equation: 0 = RC + T, which means when transforming camera 3D
-            % position to camera view, the results is situated the origin.
-            % aka C = -R'T, ' is transpose
-            % It's the source of PoseInv - inverse the wc and cw.
+            % The ORB RT is from world to camera, which can be used to reproject 3D points
+            % when plotting the camera 
             pt_2d_ORB   = Project3D(RT_ORB, cameraParams, pt_3d);
             
             figure(1); clf;
